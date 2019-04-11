@@ -91,21 +91,14 @@ const SCREENS = {
 }
 
 class PersistentDrawerLeft extends React.Component {
-  state = {
-    open: false
-  };
-
     constructor(props) {
         super(props);
 
         this.state = {
             screenToRender: SCREENS.MAIN,
+            open: false,
         }
     }
-
-    state = {
-        open: false,
-    };
 
     handleDrawerOpen = () => {
         this.setState({ open: true });
@@ -118,7 +111,7 @@ class PersistentDrawerLeft extends React.Component {
     render() {
         const { classes, theme } = this.props;
         const { open } = this.state;
-        const screenToRender = SCREENS.MAIN;
+
         return (
             <div className={classes.root}>
                 <CssBaseline />
@@ -158,19 +151,12 @@ class PersistentDrawerLeft extends React.Component {
                     </div>
                     <Divider />
                     <List>
-                        <ListItem button onClick={() => this.setState({screenToRender: SCREENS.VACCINE_LIST})}>
+                        <ListItem button onClick={() => this.setState({screenToRender: SCREENS.VACCINE_LIST, open: false})}>
                             <ListItemText primary="Vaccine List" />
                         </ListItem>
-                        <ListItem button onClick={() => this.setState({screenToRender: SCREENS.WORLD_LIST})}>
+                        <ListItem button onClick={() => this.setState({screenToRender: SCREENS.WORLD_LIST, open: false})}>
                             <ListItemText primary={"World List"} />
                         </ListItem>
-
-                        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                            <ListItem button key={text}>
-                                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                                <ListItemText primary={text} />
-                            </ListItem>
-                        ))}
                     </List>
                 </Drawer>
                 <main
