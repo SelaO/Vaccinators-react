@@ -25,6 +25,7 @@ import ListIcon from '@material-ui/icons/List'
 import Done from '@material-ui/icons/Done'
 import ExitToApp from '@material-ui/icons/ExitToApp'
 
+import UserDetailsPage from "../Screens/UserDetailsPage"
 import MainPage from "../Screens/MainPage";
 import VaccinesPage from "../Screens/VaccinesPage"
 import WorldPage from "../Screens/WorldPage";
@@ -223,7 +224,7 @@ class PersistentDrawerLeft extends React.Component {
                 >
                     <div className={classes.drawerHeader} />
                     {this.state.screenToRender === SCREENS.MAIN ? (
-                        <VaccinesPage />
+                        <UserDetailsPage />
                     ) : this.state.screenToRender === SCREENS.VACCINE_LIST ? (
                         <VaccinesPage />
                     ) : this.state.screenToRender === SCREENS.WORLD_LIST ? (
