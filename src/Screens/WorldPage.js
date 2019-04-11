@@ -305,7 +305,7 @@ class WorldPage extends Component {
                     placeholder="Search a country (start with a)"
                     isClearable
                 />
-                {this.state.selectedCountryAlpha3 ?
+                {this.state.selectedCountryAlpha3 && suggestions.find(e => e.alpha3.toUpperCase() === this.state.selectedCountryAlpha3) ?
                     <React.Fragment>
                         <div style={{color: '#888888'}}>
                             <h2>Needed vaccines for {suggestions.find(e => e.alpha3.toUpperCase() === this.state.selectedCountryAlpha3).label}</h2>
