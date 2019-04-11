@@ -8,7 +8,6 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import { getUsersVaccines } from "../logic/backend";
 
 const styles = theme => ({
   root: {
@@ -21,20 +20,14 @@ const styles = theme => ({
   }
 });
 
-// function createData(id,name,given_date,due_date,description) {
-//   return { id, name,given_date,due_date,description };
-// }
 
-// const rows = [
-//   createData(2,'Frozen yoghurt', 159, 6.0, 24, 4.0),
-//   createData(2,'Ice cream sandwich', 237, 9.0, 37, 4.3),
-//   createData(2,'Eclair', 262, 16.0, 24, 6.0),
-//   createData(2,'Cupcake', 305, 3.7, 67, 4.3),
-//   createData(2,'Gingerbread', 356, 16.0, 49, 3.9),
-// ];
+class VaccineList extends Component {
+
+
+  setAsyncState = newState =>
+    new Promise(resolve => this.setState(newState, () => resolve()));
 
   render() {
-    this.getVaccines();
     const { classes } = this.props;
 
   return (
@@ -51,7 +44,7 @@ const styles = theme => ({
           </TableRow>
         </TableHead>
         <TableBody>
-          {props.rows.map((row, i) => (
+          {this.props.rows.map((row, i) => (
             <TableRow key={i}>
               <TableCell component="th" scope="row">
                 {row.name}
@@ -68,6 +61,7 @@ const styles = theme => ({
     </div> 
   
   );
+}
 }
 
 VaccineList.propTypes = {
