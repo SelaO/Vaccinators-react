@@ -92,9 +92,9 @@ const SCREENS = {
 };
 
 const SCREENS_TITLES = {
-    MAIN: "MAIN",
-    VACCINE_LIST: "VACCINE LIST",
-    WORLD_LIST: "WORLD LIST"
+    MAIN: "Main",
+    VACCINE_LIST: "Vaccine List",
+    WORLD_LIST: "World List"
 };
 
 class PersistentDrawerLeft extends React.Component {
@@ -166,6 +166,17 @@ class PersistentDrawerLeft extends React.Component {
                             button
                             onClick={() =>
                                 this.setState({
+                                    screenToRender: SCREENS.MAIN,
+                                    open: false
+                                })
+                            }
+                        >
+                            <ListItemText primary="Main" />
+                        </ListItem>
+                        <ListItem
+                            button
+                            onClick={() =>
+                                this.setState({
                                     screenToRender: SCREENS.VACCINE_LIST,
                                     open: false
                                 })
@@ -183,6 +194,16 @@ class PersistentDrawerLeft extends React.Component {
                             }
                         >
                             <ListItemText primary={"World List"} />
+                        </ListItem>
+                        <ListItem
+                            button
+                            onClick={() =>
+                                this.setState({
+                                    open: false
+                                })
+                            }
+                        >
+                            <ListItemText primary={"Logout"} />
                         </ListItem>
                     </List>
                 </Drawer>
