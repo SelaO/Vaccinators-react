@@ -1,23 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-
+import React from "react";
+import { Component } from "react";
+import PropTypes, { func } from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
+import { getUsersVaccines } from "../logic/backend";
 
 const styles = theme => ({
   root: {
-    width: '100%',
+    width: "100%",
     marginTop: theme.spacing.unit * 3,
-    overflowX: 'auto',
+    overflowX: "auto"
   },
   table: {
-    minWidth: 700,
-  },
+    minWidth: 700
+  }
 });
 
 // function createData(id,name,given_date,due_date,description) {
@@ -32,8 +33,9 @@ const styles = theme => ({
 //   createData(2,'Gingerbread', 356, 16.0, 49, 3.9),
 // ];
 
-function VaccineList(props) {
-  const { classes } = props;
+  render() {
+    this.getVaccines();
+    const { classes } = this.props;
 
   return (
     <div className= "UserPage-container">

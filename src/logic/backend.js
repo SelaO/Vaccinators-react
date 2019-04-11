@@ -69,6 +69,30 @@ async function getUsersVaccinesDocRef(id){
       return vaccines;
 }
 
+export async function getUsersVaccines2(id) {
+   let res = [
+        { "description": 'Anti Hepatitis B',
+    "due_date": "Timestamp { seconds: 1870585200, nanoseconds: 0 }",
+    "durability_years": "10",
+    "given_date": "Timestamp { seconds: 1255334400, nanoseconds: 0 }",
+    "given_location": 'Israel',
+    "md_number": "1001",
+    "name": 'Hepatitis B',
+    "stamp": '11hashfunc42' 
+     },
+     { "description": 'Anti Polio',
+     "due_date": "Timestamp { seconds: 1870585200, nanoseconds: 0 }",
+     "durability_years": "10",
+     "given_date": "Timestamp { seconds: 1255334400, nanoseconds: 0 }",
+     "given_location": 'Israel',
+     "md_number": "1002",
+     "name": 'Polio',
+     "stamp": '11hashfunc32' 
+      }
+    ];
+    return res;
+}
+
  export async function getUsersVaccines(id) {
     var vaccDocRef = await getUsersVaccinesDocRef(id);
     var vaccines = [];
@@ -78,11 +102,48 @@ async function getUsersVaccinesDocRef(id){
     return vaccines;
 }
 
+export function getNeededVaccinesByCountry(id, country) {
+    var res = [
+        { "description": 'Anti Tetanus',
+        "due_date": "Timestamp { seconds: 1870585200, nanoseconds: 0 }",
+        "durability_years": "10",
+        "given_date": "Timestamp { seconds: 1255334400, nanoseconds: 0 }",
+        "given_location": 'Israel',
+        "md_number": "1000",
+        "name": 'Tetanus',
+        "stamp": '11hashfunc72' 
+         },
+         { "description": 'Anti Hepatitis B',
+         "due_date": "Timestamp { seconds: 1870585200, nanoseconds: 0 }",
+         "durability_years": "10",
+         "given_date": "Timestamp { seconds: 1255334400, nanoseconds: 0 }",
+         "given_location": 'Israel',
+         "md_number": "1001",
+         "name": 'Hepatitis B',
+         "stamp": '11hashfunc42' 
+          },
+          { "description": 'Anti Polio',
+          "due_date": "Timestamp { seconds: 1870585200, nanoseconds: 0 }",
+          "durability_years": "10",
+          "given_date": "Timestamp { seconds: 1255334400, nanoseconds: 0 }",
+          "given_location": 'Israel',
+          "md_number": "1002",
+          "name": 'Polio',
+          "stamp": '11hashfunc32' 
+           }
+    ]
+    return res;
+}
 
+// function getNeededVaccinesByCountry2(id, country) {
+//     var vaccDocRef = await getUsersVaccinesDocRef(id);
+//     var countryDocRef = await getCountriesVaccine(country);
+//     needed_vaccines = await getCoralatedVaccines(vaccDocRef, countryDocRef);
+//     return needed_vaccines;
+// }
 
 //vaccines.forEach((v) => console.log(v));
-
- //getUserById('1').then((user) => user.get('given_vaccines')[0].get().then((doc) => console.log(doc.data())));
+//  getUserById('1').then((user) => user.get('given_vaccines')[0].get().then((doc) => console.log(doc.data())));
 
 
 
