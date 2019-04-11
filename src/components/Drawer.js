@@ -95,7 +95,7 @@ class PersistentDrawerLeft extends React.Component {
         super(props);
 
         this.state = {
-            screenToRender: SCREENS.MAIN,
+            screenToRender: SCREENS.WORLD_LIST,
             open: false,
         }
     }
