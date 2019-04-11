@@ -1,4 +1,6 @@
 
+const vaccines = require("./data");
+
 const config = {
   apiKey: "AIzaSyBnp2EI2K9GpVvsy7Hgf-e7IcOk9fMp5dc",
   authDomain: "vaccinepad.firebaseapp.com",
@@ -103,37 +105,21 @@ export async function getUsersVaccines2(id) {
 }
 
 export function getNeededVaccinesByCountry(id, country) {
-    var res = [
-        { "description": 'Anti Tetanus',
-        "due_date": "Timestamp { seconds: 1870585200, nanoseconds: 0 }",
-        "durability_years": "10",
-        "given_date": "Timestamp { seconds: 1255334400, nanoseconds: 0 }",
-        "given_location": 'Israel',
-        "md_number": "1000",
-        "name": 'Tetanus',
-        "stamp": '11hashfunc72' 
-         },
-         { "description": 'Anti Hepatitis B',
-         "due_date": "Timestamp { seconds: 1870585200, nanoseconds: 0 }",
-         "durability_years": "10",
-         "given_date": "Timestamp { seconds: 1255334400, nanoseconds: 0 }",
-         "given_location": 'Israel',
-         "md_number": "1001",
-         "name": 'Hepatitis B',
-         "stamp": '11hashfunc42' 
-          },
-          { "description": 'Anti Polio',
-          "due_date": "Timestamp { seconds: 1870585200, nanoseconds: 0 }",
-          "durability_years": "10",
-          "given_date": "Timestamp { seconds: 1255334400, nanoseconds: 0 }",
-          "given_location": 'Israel',
-          "md_number": "1002",
-          "name": 'Polio',
-          "stamp": '11hashfunc32' 
-           }
-    ]
-    return res;
+    let rand = Math.floor(Math.random() * 3);     // returns a random integer from 0 to 9
+    if(rand === 0){
+        return vaccines.vaccine1;
+    }
+    if(rand === 1){
+        return vaccines.vaccine2;
+    }
+
+    if(rand === 2){
+        return vaccines.vaccine3;
+    }
+    return vaccines.vaccine1.vaccine1;
 }
+
+// async function 
 
 // function getNeededVaccinesByCountry2(id, country) {
 //     var vaccDocRef = await getUsersVaccinesDocRef(id);
@@ -144,7 +130,4 @@ export function getNeededVaccinesByCountry(id, country) {
 
 //vaccines.forEach((v) => console.log(v));
 //  getUserById('1').then((user) => user.get('given_vaccines')[0].get().then((doc) => console.log(doc.data())));
-
-
-
 
