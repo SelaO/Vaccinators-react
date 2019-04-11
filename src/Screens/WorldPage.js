@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import ReactDOM from "react-dom"
 import PropTypes from 'prop-types'
 import {
     ComposableMap,
@@ -15,7 +14,6 @@ import classNames from 'classnames';
 import Select from 'react-select';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import NoSsr from '@material-ui/core/NoSsr';
 import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Chip from '@material-ui/core/Chip';
@@ -23,7 +21,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import CancelIcon from '@material-ui/icons/Cancel';
 import { emphasize } from '@material-ui/core/styles/colorManipulator';
 import VaccineList from "../components/VaccineList.js";
-
+import { getNeededVaccinesByCountry } from '../logic/backend'
 
 const styles = theme => ({
     root: {
@@ -203,7 +201,6 @@ const selectStyles = {
 
 class WorldPage extends Component {
     static propTypes = {
-        prop: PropTypes
     }
 
     constructor(props) {
@@ -211,7 +208,8 @@ class WorldPage extends Component {
 
         this.state = {
             zoom: 1,
-            selectedCountryAlpha3: 'RUS',
+            selectedCountryAlpha3: null,
+            vaccines: [],
         }
 
         this.handleZoomIn = this.handleZoomIn.bind(this)
@@ -224,7 +222,10 @@ class WorldPage extends Component {
         this.setState({
             [name]: value,
             selectedCountryAlpha3: value.alpha3.toUpperCase(),
+            vaccines: getNeededVaccinesByCountry("1", value)
         });
+
+
     };
 
     handleZoomIn() {
@@ -240,9 +241,9 @@ class WorldPage extends Component {
     }
 
     handleClick(geography, evt) {
-        console.log("Geography data: ", geography)
         this.setState({
             selectedCountryAlpha3: geography.id,
+            vaccines: getNeededVaccinesByCountry("1", geography.id) // this is alpha3 and not country 
         })
     }
 
@@ -278,23 +279,22 @@ class WorldPage extends Component {
 
     render() {
         const { classes } = this.props;
-        
+
         return (
             <div style={wrapperStyles}>
-                <Button onClick={this.handleZoomIn}>{"Zoom in"}</Button>
-                <Button onClick={this.handleZoomOut}>{"Zoom out"}</Button>
+                <Button style={{color: '#888888'}} onClick={this.handleZoomIn}>{"Zoom in"}</Button>
+                <Button style={{color: '#888888'}} onClick={this.handleZoomOut}>{"Zoom out"}</Button>
                 <hr />
                 <ComposableMap style={{ width: "100%" }}>
                     <ZoomableGroup zoom={this.state.zoom}>
                         <Geographies geography={geographyObject} disableOptimization>
                             {
-                                (geographies, projection) => 
+                                (geographies, projection) =>
                                     geographies.map((geography, i) => this.geographyRenderer(geography, projection, i, geography.id === this.state.selectedCountryAlpha3)
                                     )}
                         </Geographies>
                     </ZoomableGroup>
                 </ComposableMap>
-
                 <Select
                     classes={classes}
                     styles={selectStyles}
@@ -305,8 +305,13 @@ class WorldPage extends Component {
                     placeholder="Search a country (start with a)"
                     isClearable
                 />
-
-                <VaccineList />
+                {this.state.selectedCountryAlpha3 ?
+                    <React.Fragment>
+                        <div style={{color: '#888888'}}>
+                            <h2>Needed vaccines for {suggestions.find(e => e.alpha3.toUpperCase() === this.state.selectedCountryAlpha3).label}</h2>
+                        </div>
+                        <VaccineList rows={this.state.vaccines} />
+                    </React.Fragment> : null}
             </div>
         )
     }

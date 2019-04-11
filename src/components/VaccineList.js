@@ -20,7 +20,6 @@ const styles = theme => ({
   }
 });
 
-
 class VaccineList extends Component {
 
 
@@ -29,7 +28,6 @@ class VaccineList extends Component {
 
   render() {
     const { classes } = this.props;
-
     return (
       <div className="UserPage-container">
         <Paper className={classes.root}>

@@ -93,7 +93,7 @@ const SCREENS = {
 const SCREENS_TITLES = {
     MAIN: "Main",
     VACCINE_LIST: "Vaccine List",
-    WORLD_LIST: "World List"
+    WORLD_LIST: "Vaccine Global Map"
 };
 
 class PersistentDrawerLeft extends React.Component {
@@ -101,7 +101,7 @@ class PersistentDrawerLeft extends React.Component {
         super(props);
 
         this.state = {
-            screenToRender: SCREENS.WORLD_LIST,
+            screenToRender: SCREENS.MAIN,
             open: false
         };
     }

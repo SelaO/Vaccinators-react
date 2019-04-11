@@ -9,9 +9,8 @@ export default class VaccinesPage extends Component {
         this.state = {
           rows: []
         };
-        var that = this; 
-        var firebaseRef = getUsersVaccines('1').then(function(e) {
-            console.log(e)
+        const that = this; 
+        getUsersVaccines('1').then(function(e) {
              that.setState({
                rows: e
              });
