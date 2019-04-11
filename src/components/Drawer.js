@@ -193,6 +193,11 @@ class PersistentDrawerLeft extends React.Component {
                         >
                             <ListItemText primary={"World List"} />
                         </ListItem>
+                        <ListItem
+                            button
+                        >
+                            <ListItemText primary={"Logout"} />
+                        </ListItem>
                     </List>
                 </Drawer>
                 <main

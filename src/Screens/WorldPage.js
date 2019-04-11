@@ -7,19 +7,19 @@ import {
     Geographies,
     Geography,
 } from "react-simple-maps"
-
+import Button from '@material-ui/core/Button';
 import { scaleLinear } from "d3-scale"
 import geographyObject from "./world-50m.json"
 
 const colorScale = scaleLinear()
-  .domain([0, 100000000, 1338612970]) // Max is based on China
-  .range(["#FFF176", "#FFC107", "#E65100"])
+    .domain([0, 100000000, 1338612970]) // Max is based on China
+    .range(["#FFF176", "#FFC107", "#E65100"])
 
 const wrapperStyles = {
     width: "100%",
     maxWidth: 980,
     margin: "0 auto",
-  }
+}
 
 export default class WorldPage extends Component {
     static propTypes = {
@@ -52,56 +52,56 @@ export default class WorldPage extends Component {
 
     handleClick(geography, evt) {
         console.log("Geography data: ", geography)
-      }
+    }
 
-      geographyRenderer(geography, projection, i) {
+    geographyRenderer(geography, projection, i) {
         return (<Geography
-            key={ `geography-${i}` }
-            cacheId={ `geography-${i}` }
-            geography={ geography }
-            projection={ projection }
+            key={`geography-${i}`}
+            cacheId={`geography-${i}`}
+            geography={geography}
+            projection={projection}
             onClick={this.handleClick}
             style={{
-              default: {
-                fill: "#ECEFF1",
-                stroke: "#607D8B",
-                strokeWidth: 0.75,
-                outline: "none",
-              },
-              hover: {
-                fill: "#607D8B",
-                stroke: "#607D8B",
-                strokeWidth: 0.75,
-                outline: "none",
-              },
-              pressed: {
-                fill: "#FF5722",
-                stroke: "#607D8B",
-                strokeWidth: 0.75,
-                outline: "none",
-              },
+                default: {
+                    fill: "#ECEFF1",
+                    stroke: "#607D8B",
+                    strokeWidth: 0.75,
+                    outline: "none",
+                },
+                hover: {
+                    fill: "#607D8B",
+                    stroke: "#607D8B",
+                    strokeWidth: 0.75,
+                    outline: "none",
+                },
+                pressed: {
+                    fill: "#FF5722",
+                    stroke: "#607D8B",
+                    strokeWidth: 0.75,
+                    outline: "none",
+                },
             }}
-          />)
-      }
-    
+        />)
+    }
+
     render() {
         return (
             <div style={wrapperStyles}>
-        <button onClick={ this.handleZoomIn }>{ "Zoom in" }</button>
-        <button onClick={ this.handleZoomOut }>{ "Zoom out" }</button>
-        <hr />
-        <ComposableMap style={{ width: "100%" }}>
-          <ZoomableGroup zoom={ this.state.zoom }>
-            <Geographies geography={ geographyObject } disableOptimization>
-              {
-                  (geographies, projection) => this.state.selectedCountryAlpha3 ? 
-                  this.geographyRenderer(geographies.find(e => e.id === this.state.selectedCountryAlpha3), projection) : 
-                  geographies.map((geography, i) => this.geographyRenderer(geography, projection, i)
- 
-              )}
-            </Geographies>
-          </ZoomableGroup>
-        </ComposableMap>
+                <Button onClick={this.handleZoomIn}>{"Zoom in"}</Button>
+                <Button onClick={this.handleZoomOut}>{"Zoom out"}</Button>
+                <hr />
+                <ComposableMap style={{ width: "100%" }}>
+                    <ZoomableGroup zoom={this.state.zoom}>
+                        <Geographies geography={geographyObject} disableOptimization>
+                            {
+                                (geographies, projection) => this.state.selectedCountryAlpha3 ?
+                                    this.geographyRenderer(geographies.find(e => e.id === this.state.selectedCountryAlpha3), projection) :
+                                    geographies.map((geography, i) => this.geographyRenderer(geography, projection, i)
+
+                                    )}
+                        </Geographies>
+                    </ZoomableGroup>
+                </ComposableMap>
             </div>
         )
     }
