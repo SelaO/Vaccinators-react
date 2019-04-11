@@ -9,13 +9,6 @@ class App extends Component {
     return (
       <div className="App">
         <Drawer />
-        <VaccineCard
-          name="Elad"
-          date="23.12.1991"
-          location="Tel aviv"
-          md="123"
-          outdate="10.10.2019"
-        />
       </div>
     );
   }

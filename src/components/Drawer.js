@@ -20,9 +20,9 @@ import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import Demo from "./Demo";
 
-import MainPage from '../Screens/MainPage'
-import VaccinePage from '../Screens/VaccinePage'
-import WorldPage from '../Screens/WorldPage'
+import MainPage from "../Screens/MainPage";
+import VaccinePage from "../Screens/VaccinePage";
+import WorldPage from "../Screens/WorldPage";
 
 const drawerWidth = 240;
 
@@ -83,100 +83,129 @@ const styles = theme => ({
   }
 });
 
-
 const SCREENS = {
-    MAIN: 'MAIN',
-    VACCINE_LIST: 'VACCINE_LIST',
-    WORLD_LIST: 'WORLD_LIST',
-}
+  MAIN: "MAIN",
+  VACCINE_LIST: "VACCINE_LIST",
+  WORLD_LIST: "WORLD_LIST"
+};
+
+const SCREENS_TITLES = {
+  MAIN: "MAIN",
+  VACCINE_LIST: "VACCINE LIST",
+  WORLD_LIST: "WORLD LIST"
+};
 
 class PersistentDrawerLeft extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            screenToRender: SCREENS.MAIN,
-            open: false,
-        }
-    }
-
-    handleDrawerOpen = () => {
-        this.setState({ open: true });
+    this.state = {
+      screenToRender: SCREENS.MAIN,
+      open: false
     };
+  }
 
-    handleDrawerClose = () => {
-        this.setState({ open: false });
-    };
+  handleDrawerOpen = () => {
+    this.setState({ open: true });
+  };
 
-    render() {
-        const { classes, theme } = this.props;
-        const { open } = this.state;
+  handleDrawerClose = () => {
+    this.setState({ open: false });
+  };
 
-        return (
-            <div className={classes.root}>
-                <CssBaseline />
-                <AppBar
-                    position="fixed"
-                    className={classNames(classes.appBar, {
-                        [classes.appBarShift]: open,
-                    })}
-                >
-                    <Toolbar disableGutters={!open}>
-                        <IconButton
-                            color="inherit"
-                            aria-label="Open drawer"
-                            onClick={this.handleDrawerOpen}
-                            className={classNames(classes.menuButton, open && classes.hide)}
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Typography variant="h6" color="inherit" noWrap>
-                            Persistent drawer
+  render() {
+    const { classes, theme } = this.props;
+    const { open } = this.state;
+
+    return (
+      <div className={classes.root}>
+        <CssBaseline />
+        <AppBar
+          position="fixed"
+          className={classNames(classes.appBar, {
+            [classes.appBarShift]: open
+          })}
+        >
+          <Toolbar disableGutters={!open}>
+            <IconButton
+              color="inherit"
+              aria-label="Open drawer"
+              onClick={this.handleDrawerOpen}
+              className={classNames(classes.menuButton, open && classes.hide)}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" color="inherit" noWrap>
+              {SCREENS_TITLES[this.state.screenToRender]}
             </Typography>
-                    </Toolbar>
-                </AppBar>
-                <Drawer
-                    className={classes.drawer}
-                    variant="persistent"
-                    anchor="left"
-                    open={open}
-                    classes={{
-                        paper: classes.drawerPaper,
-                    }}
-                >
-                    <div className={classes.drawerHeader}>
-                        <IconButton onClick={this.handleDrawerClose}>
-                            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-                        </IconButton>
-                    </div>
-                    <Divider />
-                    <List>
-                        <ListItem button onClick={() => this.setState({screenToRender: SCREENS.VACCINE_LIST, open: false})}>
-                            <ListItemText primary="Vaccine List" />
-                        </ListItem>
-                        <ListItem button onClick={() => this.setState({screenToRender: SCREENS.WORLD_LIST, open: false})}>
-                            <ListItemText primary={"World List"} />
-                        </ListItem>
-                    </List>
-                </Drawer>
-                <main
-                    className={classNames(classes.content, {
-                        [classes.contentShift]: open,
-                    })}
-                >
-                    <div className={classes.drawerHeader} />
-                    {this.state.screenToRender === SCREENS.MAIN ? <MainPage /> : 
-                this.state.screenToRender === SCREENS.VACCINE_LIST ? <VaccinePage /> : 
-                this.state.screenToRender === SCREENS.WORLD_LIST ? <WorldPage /> : null}
-                </main>
-            </div>
-        );
-    }
+          </Toolbar>
+        </AppBar>
+        <Drawer
+          className={classes.drawer}
+          variant="persistent"
+          anchor="left"
+          open={open}
+          classes={{
+            paper: classes.drawerPaper
+          }}
+        >
+          <div className={classes.drawerHeader}>
+            <IconButton onClick={this.handleDrawerClose}>
+              {theme.direction === "ltr" ? (
+                <ChevronLeftIcon />
+              ) : (
+                <ChevronRightIcon />
+              )}
+            </IconButton>
+          </div>
+          <Divider />
+          <List>
+            <ListItem
+              button
+              onClick={() =>
+                this.setState({
+                  screenToRender: SCREENS.VACCINE_LIST,
+                  open: false
+                })
+              }
+            >
+              <ListItemText primary="Vaccine List" />
+            </ListItem>
+            <ListItem
+              button
+              onClick={() =>
+                this.setState({
+                  screenToRender: SCREENS.WORLD_LIST,
+                  open: false
+                })
+              }
+            >
+              <ListItemText primary={"World List"} />
+            </ListItem>
+          </List>
+        </Drawer>
+        <main
+          className={classNames(classes.content, {
+            [classes.contentShift]: open
+          })}
+        >
+          <div className={classes.drawerHeader} />
+          {this.state.screenToRender === SCREENS.MAIN ? (
+            <MainPage />
+          ) : this.state.screenToRender === SCREENS.VACCINE_LIST ? (
+            <VaccinePage />
+          ) : this.state.screenToRender === SCREENS.WORLD_LIST ? (
+            <WorldPage />
+          ) : null}
+        </main>
+      </div>
+    );
+  }
 }
 
 PersistentDrawerLeft.propTypes = {
-    classes: PropTypes.object.isRequired,
-    theme: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired
 };
 
 export default withStyles(styles, { withTheme: true })(PersistentDrawerLeft);
