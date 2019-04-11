@@ -160,7 +160,7 @@ class PersistentDrawerLeft extends React.Component {
                     </div>
                     <Divider />
                     <List>
-                    <ListItem
+                        <ListItem
                             button
                             onClick={() =>
                                 this.setState({
@@ -169,6 +169,8 @@ class PersistentDrawerLeft extends React.Component {
                                 })
                             }
                         >
+                            <ListItemText primary="Main" />
+                        </ListItem>
                         <ListItem
                             button
                             onClick={() =>
