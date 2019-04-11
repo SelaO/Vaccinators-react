@@ -20,17 +20,17 @@ const styles = theme => ({
   },
 });
 
-function createData(id,name,given_date,due_date,description) {
-  return { id, name,given_date,due_date,description };
-}
+// function createData(id,name,given_date,due_date,description) {
+//   return { id, name,given_date,due_date,description };
+// }
 
-const rows = [
-  createData(2,'Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData(2,'Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData(2,'Eclair', 262, 16.0, 24, 6.0),
-  createData(2,'Cupcake', 305, 3.7, 67, 4.3),
-  createData(2,'Gingerbread', 356, 16.0, 49, 3.9),
-];
+// const rows = [
+//   createData(2,'Frozen yoghurt', 159, 6.0, 24, 4.0),
+//   createData(2,'Ice cream sandwich', 237, 9.0, 37, 4.3),
+//   createData(2,'Eclair', 262, 16.0, 24, 6.0),
+//   createData(2,'Cupcake', 305, 3.7, 67, 4.3),
+//   createData(2,'Gingerbread', 356, 16.0, 49, 3.9),
+// ];
 
 function VaccineList(props) {
   const { classes } = props;
@@ -45,17 +45,19 @@ function VaccineList(props) {
             <TableCell align="right">Given Date</TableCell>
             <TableCell align="right">Expiration Date</TableCell>
             <TableCell align="right">Description</TableCell>
+            <TableCell align="right">Medical Number</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => (
-            <TableRow key={row.id}>
+          {props.rows.map((row, i) => (
+            <TableRow key={i}>
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
-              <TableCell align="right">{row.given_date}</TableCell>
-              <TableCell align="right">{row.due_date}</TableCell>
+              <TableCell align="right">{new Date(row.given_date.seconds * 1000).toLocaleDateString().replace(/\//g, '-')}</TableCell>
+              <TableCell align="right">{new Date(row.due_date.seconds * 1000).toLocaleDateString().replace(/\//g, '-')}</TableCell>
               <TableCell align="right">{row.description}</TableCell>
+              <TableCell align="right">{row.md_number}</TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -68,6 +70,7 @@ function VaccineList(props) {
 
 VaccineList.propTypes = {
   classes: PropTypes.object.isRequired,
+  rows: PropTypes.array
 };
 
 export default withStyles(styles)(VaccineList);

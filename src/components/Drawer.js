@@ -21,7 +21,7 @@ import MailIcon from "@material-ui/icons/Mail";
 import Demo from "./Demo";
 
 import MainPage from "../Screens/MainPage";
-
+import VaccinesPage from "../Screens/VaccinesPage"
 import WorldPage from "../Screens/WorldPage";
 import VaccineList from "./VaccineList";
 
@@ -213,9 +213,9 @@ class PersistentDrawerLeft extends React.Component {
                 >
                     <div className={classes.drawerHeader} />
                     {this.state.screenToRender === SCREENS.MAIN ? (
-                        <VaccineList />
+                        <VaccinesPage />
                     ) : this.state.screenToRender === SCREENS.VACCINE_LIST ? (
-                        <VaccineList />
+                        <VaccinesPage />
                     ) : this.state.screenToRender === SCREENS.WORLD_LIST ? (
                         <WorldPage />
                     ) : null}
