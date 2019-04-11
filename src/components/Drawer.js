@@ -19,7 +19,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import Demo from "./Demo";
-
+import UserDetailsPage from "../Screens/UserDetailsPage"
 import MainPage from "../Screens/MainPage";
 import VaccinesPage from "../Screens/VaccinesPage"
 import WorldPage from "../Screens/WorldPage";
@@ -213,7 +213,7 @@ class PersistentDrawerLeft extends React.Component {
                 >
                     <div className={classes.drawerHeader} />
                     {this.state.screenToRender === SCREENS.MAIN ? (
-                        <VaccinesPage />
+                        <UserDetailsPage />
                     ) : this.state.screenToRender === SCREENS.VACCINE_LIST ? (
                         <VaccinesPage />
                     ) : this.state.screenToRender === SCREENS.WORLD_LIST ? (
