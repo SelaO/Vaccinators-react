@@ -90,9 +90,9 @@ const SCREENS = {
 };
 
 const SCREENS_TITLES = {
-    MAIN: "MAIN",
-    VACCINE_LIST: "VACCINE LIST",
-    WORLD_LIST: "WORLD LIST"
+    MAIN: "Main",
+    VACCINE_LIST: "Vaccine List",
+    WORLD_LIST: "World List"
 };
 
 class PersistentDrawerLeft extends React.Component {
