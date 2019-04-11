@@ -23,7 +23,8 @@ const styles = {
   },
   CardContent: {
     display: "grid",
-    gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr"
+    gridTemplateColumns: "repeat(5, 1fr)",
+    gridGap: "5px"
   }
 };
 
