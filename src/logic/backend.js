@@ -69,7 +69,7 @@ async function getUsersVaccinesDocRef(id){
       return vaccines;
 }
 
- async function getUsersVaccines(id) {
+ export async function getUsersVaccines(id) {
     var vaccDocRef = await getUsersVaccinesDocRef(id);
     var vaccines = [];
     for(let i = 0; i < vaccDocRef.length; i++){
