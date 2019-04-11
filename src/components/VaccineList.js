@@ -32,12 +32,11 @@ const rows = [
   createData(2,'Gingerbread', 356, 16.0, 49, 3.9),
 ];
 
-function UserPage(props) {
+function VaccineList(props) {
   const { classes } = props;
 
   return (
     <div className= "UserPage-container">
-    <div className="UserPage-name"> USER NAME </div>
     <Paper className={classes.root}>
       <Table className={classes.table}>
         <TableHead>
@@ -67,8 +66,8 @@ function UserPage(props) {
   );
 }
 
-UserPage.propTypes = {
+VaccineList.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(UserPage);
+export default withStyles(styles)(VaccineList);
