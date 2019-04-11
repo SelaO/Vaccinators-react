@@ -1,4 +1,4 @@
-import {getUserById} from './backend'
+/* import {getUserById} from './backend'
 
 getAllUsers2().then(
     (users) => users.forEach((user => console.log(user.get('name'))
@@ -9,7 +9,8 @@ getAllUsers().then((users) => users.forEach((user) => console.log(user.get('name
 
 getUserById('1').then((user) => console.log(user.get('name')));
 
-
+var vaccines = getUsersVaccines('1');
+console.log(vaccines.then((a) => console.log(a)));
 
 // function getAllUsers2(){
 //     var users = [];
@@ -22,3 +23,4 @@ getUserById('1').then((user) => console.log(user.get('name')));
 //     });
 // x
 // }
+ */

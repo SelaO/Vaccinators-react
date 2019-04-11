@@ -69,17 +69,16 @@ async function getUsersVaccinesDocRef(id){
       return vaccines;
 }
 
-export async function getUsersVaccines(id) {
+ async function getUsersVaccines(id) {
     var vaccDocRef = await getUsersVaccinesDocRef(id);
     var vaccines = [];
-    for(i = 0; i < vaccDocRef.length; i++){
+    for(let i = 0; i < vaccDocRef.length; i++){
        await vaccDocRef[i].get().then((doc) => vaccines.push(doc.data()));
     }
     return vaccines;
 }
 
-var vaccines = getUsersVaccines('1');
-console.log(vaccines);
+
 
 //vaccines.forEach((v) => console.log(v));
 
