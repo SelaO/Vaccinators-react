@@ -20,6 +20,11 @@ import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import Demo from "./Demo";
 
+import Airplanemode_active from '@material-ui/icons/FlightTakeoff'
+import ListIcon from '@material-ui/icons/List'
+import Done from '@material-ui/icons/Done'
+import ExitToApp from '@material-ui/icons/ExitToApp'
+
 import MainPage from "../Screens/MainPage";
 import VaccinesPage from "../Screens/VaccinesPage"
 import WorldPage from "../Screens/WorldPage";
@@ -127,7 +132,7 @@ class PersistentDrawerLeft extends React.Component {
                         [classes.appBarShift]: open
                     })}
                 >
-                    <Toolbar disableGutters={!open}>
+                    <Toolbar disableGutters={!open} style={{ backgroundColor: '#FEFFA0', color: 'black' }}>
                         <IconButton
                             color="inherit"
                             aria-label="Open drawer"
@@ -150,17 +155,18 @@ class PersistentDrawerLeft extends React.Component {
                         paper: classes.drawerPaper
                     }}
                 >
-                    <div className={classes.drawerHeader}>
-                        <IconButton onClick={this.handleDrawerClose}>
+                    <div className={classes.drawerHeader} style={{ backgroundColor: '#FEFFA0', color: 'black' }}>
+                        <IconButton onClick={this.handleDrawerClose} style={{fontWeight: 'bold'}}>
+                        Vaccinators
                             {theme.direction === "ltr" ? (
                                 <ChevronLeftIcon />
                             ) : (
-                                    <ChevronRightIcon />
+                                <ChevronRightIcon />
                                 )}
                         </IconButton>
                     </div>
                     <Divider />
-                    <List>
+                    <List style={{ backgroundColor: '#FEFFA0', color: 'black', height: '100%' }}>
                         <ListItem
                             button
                             onClick={() =>
@@ -170,7 +176,8 @@ class PersistentDrawerLeft extends React.Component {
                                 })
                             }
                         >
-                            <ListItemText primary="Main" />
+                            <Done />
+                            <ListItemText primary={SCREENS_TITLES.MAIN} />
                         </ListItem>
                         <ListItem
                             button
@@ -181,7 +188,8 @@ class PersistentDrawerLeft extends React.Component {
                                 })
                             }
                         >
-                            <ListItemText primary="Vaccine List" />
+                            <ListIcon />
+                            <ListItemText primary={SCREENS_TITLES.VACCINE_LIST} />
                         </ListItem>
                         <ListItem
                             button
@@ -192,7 +200,8 @@ class PersistentDrawerLeft extends React.Component {
                                 })
                             }
                         >
-                            <ListItemText primary={"World List"} />
+                            <Airplanemode_active />
+                            <ListItemText primary={SCREENS_TITLES.WORLD_LIST} />
                         </ListItem>
                         <ListItem
                             button
@@ -202,6 +211,7 @@ class PersistentDrawerLeft extends React.Component {
                                 })
                             }
                         >
+                        <ExitToApp/>
                             <ListItemText primary={"Logout"} />
                         </ListItem>
                     </List>

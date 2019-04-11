@@ -21,8 +21,6 @@ const styles = theme => ({
 });
 
 class VaccineList extends Component {
-
-
   setAsyncState = newState =>
     new Promise(resolve => this.setState(newState, () => resolve()));
 
