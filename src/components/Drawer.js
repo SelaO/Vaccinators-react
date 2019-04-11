@@ -195,6 +195,11 @@ class PersistentDrawerLeft extends React.Component {
                         </ListItem>
                         <ListItem
                             button
+                            onClick={() =>
+                                this.setState({
+                                    open: false
+                                })
+                            }
                         >
                             <ListItemText primary={"Logout"} />
                         </ListItem>
