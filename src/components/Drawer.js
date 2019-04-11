@@ -22,7 +22,6 @@ import Demo from "./Demo";
 
 import MainPage from "../Screens/MainPage";
 
-import VaccinePage from "../Screens/VaccinePage";
 import WorldPage from "../Screens/WorldPage";
 import VaccineList from "./VaccineList";
 
