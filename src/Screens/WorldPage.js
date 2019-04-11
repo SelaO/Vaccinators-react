@@ -256,19 +256,19 @@ class WorldPage extends Component {
             onClick={this.handleClick}
             style={{
                 default: {
-                    fill: isSelected ? 'red' : "#ECEFF1",
+                    fill: isSelected ? 'yellow' : "#ECEFF1",
                     stroke: "#607D8B",
                     strokeWidth: 0.75,
                     outline: isSelected ? 'red' : "none",
                 },
                 hover: {
-                    fill: "#607D8B",
+                    fill: "lightYellow",
                     stroke: "#607D8B",
                     strokeWidth: 0.75,
                     outline: "none",
                 },
                 pressed: {
-                    fill: "#FF5722",
+                    fill: "lightgoldenrodyellow",
                     stroke: "#607D8B",
                     strokeWidth: 0.75,
                     outline: "none",
@@ -311,7 +311,7 @@ class WorldPage extends Component {
                             <h2>Needed vaccines for {suggestions.find(e => e.alpha3.toUpperCase() === this.state.selectedCountryAlpha3).label}</h2>
                         </div>
                         <VaccineList rows={this.state.vaccines} />
-                    </React.Fragment> : null}
+                    </React.Fragment> : <h2 style={{color: '#888888'}}>No necessary vaccines found</h2>}
             </div>
         )
     }
