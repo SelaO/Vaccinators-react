@@ -7,6 +7,7 @@
     "@material-ui/icons": "^3.0.2",
     "classnames": "^2.2.6",
     "d3-scale": "^3.0.0",
+    "firebase": "^5.9.3",
     "material-ui-icons": "^1.0.0-beta.36",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",

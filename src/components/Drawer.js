@@ -20,84 +20,89 @@ import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import Demo from "./Demo";
 
-import MainPage from '../Screens/MainPage'
-import VaccinePage from '../Screens/VaccinePage'
-import WorldPage from '../Screens/WorldPage'
+import MainPage from "../Screens/MainPage";
+import VaccinePage from "../Screens/VaccinePage";
+import WorldPage from "../Screens/WorldPage";
 
 const drawerWidth = 240;
 
 const styles = theme => ({
-  root: {
-    display: "flex"
-  },
-  appBar: {
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    })
-  },
-  appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen
-    })
-  },
-  menuButton: {
-    marginLeft: 12,
-    marginRight: 20
-  },
-  hide: {
-    display: "none"
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0
-  },
-  drawerPaper: {
-    width: drawerWidth
-  },
-  drawerHeader: {
-    display: "flex",
-    alignItems: "center",
-    padding: "0 8px",
-    ...theme.mixins.toolbar,
-    justifyContent: "flex-end"
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing.unit * 3,
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    }),
-    marginLeft: -drawerWidth
-  },
-  contentShift: {
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen
-    }),
-    marginLeft: 0
-  }
+    root: {
+        display: "flex"
+    },
+    appBar: {
+        transition: theme.transitions.create(["margin", "width"], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen
+        })
+    },
+    appBarShift: {
+        width: `calc(100% - ${drawerWidth}px)`,
+        marginLeft: drawerWidth,
+        transition: theme.transitions.create(["margin", "width"], {
+            easing: theme.transitions.easing.easeOut,
+            duration: theme.transitions.duration.enteringScreen
+        })
+    },
+    menuButton: {
+        marginLeft: 12,
+        marginRight: 20
+    },
+    hide: {
+        display: "none"
+    },
+    drawer: {
+        width: drawerWidth,
+        flexShrink: 0
+    },
+    drawerPaper: {
+        width: drawerWidth
+    },
+    drawerHeader: {
+        display: "flex",
+        alignItems: "center",
+        padding: "0 8px",
+        ...theme.mixins.toolbar,
+        justifyContent: "flex-end"
+    },
+    content: {
+        flexGrow: 1,
+        padding: theme.spacing.unit * 3,
+        transition: theme.transitions.create("margin", {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen
+        }),
+        marginLeft: -drawerWidth
+    },
+    contentShift: {
+        transition: theme.transitions.create("margin", {
+            easing: theme.transitions.easing.easeOut,
+            duration: theme.transitions.duration.enteringScreen
+        }),
+        marginLeft: 0
+    }
 });
 
-
 const SCREENS = {
-    MAIN: 'MAIN',
-    VACCINE_LIST: 'VACCINE_LIST',
-    WORLD_LIST: 'WORLD_LIST',
-}
+    MAIN: "MAIN",
+    VACCINE_LIST: "VACCINE_LIST",
+    WORLD_LIST: "WORLD_LIST"
+};
+
+const SCREENS_TITLES = {
+    MAIN: "MAIN",
+    VACCINE_LIST: "VACCINE LIST",
+    WORLD_LIST: "WORLD LIST"
+};
 
 class PersistentDrawerLeft extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            screenToRender: SCREENS.WORLD_LIST,
-            open: false,
-        }
+            screenToRender: SCREENS.MAIN,
+            open: false
+        };
     }
 
     handleDrawerOpen = () => {
@@ -118,7 +123,7 @@ class PersistentDrawerLeft extends React.Component {
                 <AppBar
                     position="fixed"
                     className={classNames(classes.appBar, {
-                        [classes.appBarShift]: open,
+                        [classes.appBarShift]: open
                     })}
                 >
                     <Toolbar disableGutters={!open}>
@@ -131,8 +136,8 @@ class PersistentDrawerLeft extends React.Component {
                             <MenuIcon />
                         </IconButton>
                         <Typography variant="h6" color="inherit" noWrap>
-                            Persistent drawer
-            </Typography>
+                            {SCREENS_TITLES[this.state.screenToRender]}
+                        </Typography>
                     </Toolbar>
                 </AppBar>
                 <Drawer
@@ -141,33 +146,57 @@ class PersistentDrawerLeft extends React.Component {
                     anchor="left"
                     open={open}
                     classes={{
-                        paper: classes.drawerPaper,
+                        paper: classes.drawerPaper
                     }}
                 >
                     <div className={classes.drawerHeader}>
                         <IconButton onClick={this.handleDrawerClose}>
-                            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                            {theme.direction === "ltr" ? (
+                                <ChevronLeftIcon />
+                            ) : (
+                                    <ChevronRightIcon />
+                                )}
                         </IconButton>
                     </div>
                     <Divider />
                     <List>
-                        <ListItem button onClick={() => this.setState({screenToRender: SCREENS.VACCINE_LIST, open: false})}>
+                        <ListItem
+                            button
+                            onClick={() =>
+                                this.setState({
+                                    screenToRender: SCREENS.VACCINE_LIST,
+                                    open: false
+                                })
+                            }
+                        >
                             <ListItemText primary="Vaccine List" />
                         </ListItem>
-                        <ListItem button onClick={() => this.setState({screenToRender: SCREENS.WORLD_LIST, open: false})}>
+                        <ListItem
+                            button
+                            onClick={() =>
+                                this.setState({
+                                    screenToRender: SCREENS.WORLD_LIST,
+                                    open: false
+                                })
+                            }
+                        >
                             <ListItemText primary={"World List"} />
                         </ListItem>
                     </List>
                 </Drawer>
                 <main
                     className={classNames(classes.content, {
-                        [classes.contentShift]: open,
+                        [classes.contentShift]: open
                     })}
                 >
                     <div className={classes.drawerHeader} />
-                    {this.state.screenToRender === SCREENS.MAIN ? <MainPage /> : 
-                this.state.screenToRender === SCREENS.VACCINE_LIST ? <VaccinePage /> : 
-                this.state.screenToRender === SCREENS.WORLD_LIST ? <WorldPage /> : null}
+                    {this.state.screenToRender === SCREENS.MAIN ? (
+                        <MainPage />
+                    ) : this.state.screenToRender === SCREENS.VACCINE_LIST ? (
+                        <VaccinePage />
+                    ) : this.state.screenToRender === SCREENS.WORLD_LIST ? (
+                        <WorldPage />
+                    ) : null}
                 </main>
             </div>
         );
@@ -176,7 +205,7 @@ class PersistentDrawerLeft extends React.Component {
 
 PersistentDrawerLeft.propTypes = {
     classes: PropTypes.object.isRequired,
-    theme: PropTypes.object.isRequired,
+    theme: PropTypes.object.isRequired
 };
 
 export default withStyles(styles, { withTheme: true })(PersistentDrawerLeft);
