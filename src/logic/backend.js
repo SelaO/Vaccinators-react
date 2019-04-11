@@ -131,8 +131,3 @@ export function getNeededVaccinesByCountry(id, country) {
 //vaccines.forEach((v) => console.log(v));
 //  getUserById('1').then((user) => user.get('given_vaccines')[0].get().then((doc) => console.log(doc.data())));
 
-
-
-res1 = getNeededVaccinesByCountry(1,1);
-res2 = getNeededVaccinesByCountry(1,1);
-res3 = getNeededVaccinesByCountry(1,1);
