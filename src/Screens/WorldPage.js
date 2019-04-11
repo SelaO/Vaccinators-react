@@ -21,11 +21,6 @@ const wrapperStyles = {
     margin: "0 auto",
   }
 
-  const include = [
-    "ARG", "BOL", "BRA", "CHL", "COL", "ECU",
-    "GUY", "PRY", "PER", "SUR", "URY", "VEN",
-  ]
-
 export default class WorldPage extends Component {
     static propTypes = {
         prop: PropTypes
@@ -48,7 +43,7 @@ export default class WorldPage extends Component {
             zoom: this.state.zoom * 2,
         })
     }
-    
+
     handleZoomOut() {
         this.setState({
             zoom: this.state.zoom / 2,

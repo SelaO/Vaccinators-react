@@ -160,6 +160,15 @@ class PersistentDrawerLeft extends React.Component {
                     </div>
                     <Divider />
                     <List>
+                    <ListItem
+                            button
+                            onClick={() =>
+                                this.setState({
+                                    screenToRender: SCREENS.MAIN,
+                                    open: false
+                                })
+                            }
+                        >
                         <ListItem
                             button
                             onClick={() =>
