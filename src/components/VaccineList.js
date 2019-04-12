@@ -31,12 +31,12 @@ class VaccineList extends Component {
         <Paper className={classes.root} style={{backgroundColor: 'lightYellow'}}>
           <Table className={classes.table} style={{backgroundColor: 'lightYellow'}}>
             <TableHead>
-              <TableRow>
-                <TableCell>Vaccine Name</TableCell>
-                <TableCell align="right">Given Date</TableCell>
-                <TableCell align="right">Expiration Date</TableCell>
-                <TableCell align="right">Description</TableCell>
-                <TableCell align="right">Medical Number</TableCell>
+              <TableRow >
+                <TableCell style={{fontSize: '0.82em', fontWeight: 'bold'}} >Vaccine Name</TableCell>
+                <TableCell style={{fontSize: '0.82em', fontWeight: 'bold'}} align="right">Given Date</TableCell>
+                <TableCell style={{fontSize: '0.82em', fontWeight: 'bold'}} align="right">Expiration Date</TableCell>
+                <TableCell style={{fontSize: '0.82em', fontWeight: 'bold'}} align="right">Description</TableCell>
+                <TableCell style={{fontSize: '0.82em', fontWeight: 'bold'}} align="right">Medical Number</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
