@@ -97,8 +97,8 @@ const SCREENS = {
 };
 
 const SCREENS_TITLES = {
-    MAIN: "Main",
-    VACCINE_LIST: "Vaccine List",
+    MAIN: "My Personal Details",
+    VACCINE_LIST: "My Vaccine List",
     WORLD_LIST: "Vaccine Global Map"
 };
 

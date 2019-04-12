@@ -5,11 +5,12 @@ export default class UserDetailsPage extends Component {
   render() {
     return (
       <div>
-        <UserDetails age = '10'
+        <UserDetails age = '22'
         firstName = 'Roi'
         lastName = 'Ashkenazi'
-        countryOfBirth = 'Syria'
-        id = '123'
+        countryOfBirth = 'Israel'
+        dateOfBirth = '07/03/1991'
+        id = '3019324981'
         ></UserDetails>
       </div>
     )

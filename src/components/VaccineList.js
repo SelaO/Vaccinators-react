@@ -27,9 +27,9 @@ class VaccineList extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <div className="UserPage-container">
-        <Paper className={classes.root}>
-          <Table className={classes.table}>
+      <div className="UserPage-container" >
+        <Paper className={classes.root} style={{backgroundColor: 'lightYellow'}}>
+          <Table className={classes.table} style={{backgroundColor: 'lightYellow'}}>
             <TableHead>
               <TableRow>
                 <TableCell>Vaccine Name</TableCell>
