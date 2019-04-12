@@ -30,42 +30,42 @@ function UserDetails(props) {
         backgroundColor: 'lightYellow',
         width: '100%',
       }}>
-        <Typography variant="h5" component="h3">
+        <Typography component="h3">
           First Name
         </Typography>
         <Typography component="h3">
           {props.firstName}
         </Typography>
 
-        <Typography variant="h5" component="h3">
+        <Typography component="h3">
           Last Name
         </Typography>
         <Typography component="h3">
           {props.lastName}
         </Typography>
 
-        <Typography variant="h5" component="h3">
+        <Typography component="h3">
           Age
         </Typography>
         <Typography component="h3">
           {props.age}
         </Typography>
 
-        <Typography variant="h5" component="h3">
+        <Typography component="h3">
           ID
         </Typography>
         <Typography component="h3">
           {props.id}
         </Typography>
 
-        <Typography variant="h5" component="h3">
+        <Typography component="h3">
           Birth Country
         </Typography>
         <Typography component="h3">
           {props.countryOfBirth}
         </Typography>
 
-        <Typography variant="h5" component="h3">
+        <Typography component="h3">
           Birth Date
         </Typography>
         <Typography component="h3">
