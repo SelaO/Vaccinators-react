@@ -157,7 +157,7 @@ class PersistentDrawerLeft extends React.Component {
                     }}
                 >
                     <div className={classes.drawerHeader} style={{ backgroundColor: '#FEFFA0', color: 'black' }}>
-                        <IconButton onClick={this.handleDrawerClose} style={{fontWeight: 'bold'}}>
+                        <IconButton onClick={this.handleDrawerClose} style={{fontWeight: 'bold', fontSize: 'large'}}>
                         Vaccinators
                             {theme.direction === "ltr" ? (
                                 <ChevronLeftIcon />

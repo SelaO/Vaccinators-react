@@ -28,6 +28,7 @@ function UserDetails(props) {
         gridColumnGap: '75px',
         gridRowGap: '10px',
         backgroundColor: 'lightYellow',
+        width: '100%',
       }}>
         <Typography variant="h5" component="h3">
           First Name
